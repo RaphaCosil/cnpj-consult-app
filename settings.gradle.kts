@@ -15,4 +15,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "cnpj-consult-app"
 include(":app")
- 
+include(":features")
+include(":features:login")
+include(":navigation")
+include(":features:signup")

@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.signup"
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
         minSdk = 24
@@ -65,4 +65,10 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation(project(":navigation"))
+
+    // Koin
+    implementation ("io.insert-koin:koin-bom:3.6.0-wasm-alpha2")
+    implementation ("io.insert-koin:koin-android:3.6.0-wasm-alpha2")
 }

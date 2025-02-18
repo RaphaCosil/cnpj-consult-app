@@ -6,5 +6,4 @@ import com.example.navigation.NavigationLogin
 
 class NavigationLoginImpl: NavigationLogin {
     override fun navigateToLogin(context: Context): Intent = LoginActivity.getIntent(context)
-
 }

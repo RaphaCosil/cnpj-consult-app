@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace = "com.example.cnpj_consult_app"
-    compileSdk = 33
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.cnpj_consult_app"
         minSdk = 24
-        targetSdk = 33
+        targetSdk = 35
         versionCode = 1
         versionName = "1.0"
 
@@ -66,4 +66,11 @@ dependencies {
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     debugImplementation("androidx.compose.ui:ui-tooling")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
-    implementation(project(":navigation"))}
+    implementation(project(":navigation"))
+    implementation(project(":features:login"))
+    implementation(project(":features:signup"))
+
+    // Koin
+    implementation ("io.insert-koin:koin-bom:3.6.0-wasm-alpha2")
+    implementation ("io.insert-koin:koin-android:3.6.0-wasm-alpha2")
+}

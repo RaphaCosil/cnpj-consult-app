@@ -16,9 +16,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.unit.dp
+import com.example.navigation.NavigationLogin
+import com.example.navigation.NavigationSignUp
+import org.koin.android.ext.android.inject
 
 class LoginActivity : ComponentActivity() {
     private val loginViewModel: LoginViewModel by viewModels()
+
+    val navigationSignUp: NavigationSignUp by inject()
+
 
     companion object {
         fun getIntent(context: Context): Intent = Intent(context, this::class.java)
@@ -27,14 +33,24 @@ class LoginActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            LoginScreen(loginViewModel)
+            LoginScreen(
+                loginViewModel,
+                onClickSignUp = {
+                    startActivity(
+                        navigationSignUp.navigateToSignUp(this)
+                    )
+                }
+            )
         }
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LoginScreen(viewModel: LoginViewModel) {
+fun LoginScreen(
+    viewModel: LoginViewModel,
+    onClickSignUp: () -> Unit
+    ) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -72,6 +88,7 @@ fun LoginScreen(viewModel: LoginViewModel) {
         Spacer(modifier = Modifier.height(8.dp))
 
         TextButton(onClick = {
+            onClickSignUp()
         }) {
             Text("Criar uma conta")
         }

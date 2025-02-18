@@ -1,5 +1,7 @@
 package com.example.signup
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +30,10 @@ import com.example.signup.ui.theme.CnpjconsultappTheme
 
 class SignUpActivity : ComponentActivity() {
     private val signUpViewModel: SignUpViewModel by viewModels()
+
+    companion object {
+        fun getIntent(context: Context): Intent = Intent(context, this::class.java)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
